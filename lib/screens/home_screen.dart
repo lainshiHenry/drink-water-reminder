@@ -20,8 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const Spacer(),
-            MainProgressBar(
-                currentValue: _currentValue, maxValue: _maxValue),
+            MainProgressBar(currentValue: _currentValue, maxValue: _maxValue),
             const Spacer(),
             Row(children: [
               IconButton(
