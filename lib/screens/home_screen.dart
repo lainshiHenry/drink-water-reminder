@@ -23,8 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
             MainProgressBar(currentValue: _currentValue, maxValue: _maxValue),
             const Spacer(),
             Row(children: [
-              IconButton(
-                icon: const Icon(Icons.add),
+              Spacer(),
+              ElevatedButton(
+                child: const Icon(Icons.add),
+                // padding: EdgeInsets.all(17),
                 onPressed: () {
                   setState(() {
                     if (_currentValue < _maxValue) {
@@ -34,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   print(_currentValue);
                 },
               ),
+              Spacer(),
             ]),
             const Spacer(),
           ],
@@ -48,18 +51,12 @@ class MainProgressBar extends StatelessWidget {
     Key? key,
     required double currentValue,
     required double maxValue,
-    Color? backgroundColour = Colors.grey,
-    Color? valueColour = Colors.indigoAccent,
   })  : _currentValue = currentValue,
         _maxValue = maxValue,
-        _backgroundColour = backgroundColour,
-        _valueColour = valueColour,
         super(key: key);
 
   final double _currentValue;
   final double _maxValue;
-  final Color? _backgroundColour;
-  final Color? _valueColour;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +68,6 @@ class MainProgressBar extends StatelessWidget {
           height: 200,
           child: CircularProgressIndicator(
             value: _calculatedValue,
-            backgroundColor: _backgroundColour,
-            color: _valueColour,
             strokeWidth: 40.0,
           ),
         ),
